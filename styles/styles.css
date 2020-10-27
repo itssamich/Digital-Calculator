@@ -1,0 +1,23 @@
+@font-face{
+    font-family: "Digital";
+    src: url("/Digital_Calculator/fonts/digital-7.ttf")
+}
+
+.calculator{
+    background-color: slategrey;
+    margin: auto;
+    width: 500px;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.screen{
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-family: Digital;
+}
+
+.numbers{
+
+}
