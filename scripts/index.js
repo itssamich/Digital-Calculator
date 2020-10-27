@@ -1,73 +1,49 @@
-var first = null;
+var first = result;
 var second = null;
-var expression = "";
 var result = null;
+var expression = "";
 
-function test(buttonNum){
-    val = buttonNum.value;
-    if(document.getElementById("tester").innerHTML.length > 10){
-        document.getElementById("tester").innerHTML = "";
+var mainScreen = document.getElementById("tester");
+var secondScreen = document.getElementById("equation");
+function adder(button){
+    mainScreen.innerHTML += button.value;
+    secondScreen.innerText += button.value;
+}
+function expres(btn){
+    if(second == null){
+        second = parseInt(document.getElementById('tester').innerHTML);
     }
-    
-    if(val == "Reset"){
-        location.reload();
-        return;
+    if(result != null){
+        second = result;
     }
-
-
-
-    if(val != "Enter"){
-        if(val != "+" && val != "-" && val != "*" && val != "/"){
-            if(first == null ){
-                first = parseInt(val);
-                console.log(val + " is saved in the first value. First Value: " + first + " Type: " + typeof(first));
-                document.getElementById("tester").innerHTML += val;
-            }
-            else if(second == null && expression != ""){
-                second = parseInt(val);
-                console.log(val + " is saved in the second value. Second Value: " + second + " Type: " + typeof(second));
-                document.getElementById("tester").innerHTML += val;
-
-            }
-            else{
-                alert("Error");
-            }
-        }
-        else if(expression  == "" && first != null){
-            if(val == "+"){
-                expression = "+";
-            }
-            else if(val == "-"){
-                expression = "-";
-            }
-            else if(val == "*"){
-                expression = "*";
-            }
-            else if(val == "/"){
-                expression = "/";
-            }
-            document.getElementById("tester").innerHTML += val;
-            console.log("Expression is: " + expression);
-        }
+    secondScreen.innerHTML += btn.value;
+    mainScreen.innerHTML = "";
+    expression = btn.value;
+    console.log(first);
+}
+function calculate(btn){
+    first = parseInt(document.getElementById('tester').innerHTML);
+    switch(expression){
+        case "+":
+            result = first + second;
+            console.log("First: " + first + " | Second: " + second);
+            mainScreen.innerHTML = result;
+            break;
+        case "-":
+            result = first - second;
+            mainScreen.innerHTML = result;
+            break;
+        case "*":
+            result = first * second;
+            mainScreen.innerHTML = result;
+            break;
+        case "/":
+            result = second / first;
+            mainScreen.innerHTML = result;
+            break;
     }
-    else if(val == "Enter" && first != null && second != null){
-        switch(expression){
-            case "+":
-                result = first + second;
-                break;
-            case "-":
-                result  = first - second;
-                break;
-            case "*":
-                result = first * second;
-                break;
-            case "/":
-                result = first / second;
-                break;
-        }
-        console.log("The result of " + first + " " + expression + " " + second + " is " + result);
-        document.getElementById("tester").innerHTML = result;
-    }
-
-
+    mainScreen.innerHTML = result;
+}
+function reset(){
+    location.reload();
 }
