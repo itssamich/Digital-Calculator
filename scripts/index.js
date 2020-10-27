@@ -17,20 +17,18 @@ function expres(btn){
         second = result;
     }
     secondScreen.innerHTML += btn.value;
-    mainScreen.innerHTML = "";
+    mainScreen.innerHTML = '';
     expression = btn.value;
-    console.log(first);
 }
 function calculate(btn){
     first = parseInt(document.getElementById('tester').innerHTML);
     switch(expression){
         case "+":
             result = first + second;
-            console.log("First: " + first + " | Second: " + second);
             mainScreen.innerHTML = result;
             break;
         case "-":
-            result = first - second;
+            result = second-first;
             mainScreen.innerHTML = result;
             break;
         case "*":
