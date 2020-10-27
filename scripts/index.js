@@ -10,7 +10,7 @@ function test(buttonNum){
     }
     
     if(val == "Reset"){
-        reset();
+        location.reload();
         return;
     }
 
@@ -70,12 +70,4 @@ function test(buttonNum){
     }
 
 
-}
-
-function reset(){
-    var first = null;
-    var second = null;
-    var expression = "";
-    var result = null;
-    
 }
